@@ -1,0 +1,17 @@
+metric,value
+n_rows,12204.0
+n_subjects,26.0
+n_masks,30.0
+mean_effective_voxels,19070.120483038347
+median_effective_voxels,10905.0
+mean_scaled_BAG,2.660008788171247
+mean_scaled_abs_BAG,4.041600240977532
+mean_healthy_BAG,4.728758022419245
+mean_healthy_abs_BAG,9.013455388808401
+mean_delta_BAG_vs_healthy,-2.0687492342479996
+mean_delta_abs_BAG_vs_healthy,-4.971855147830871
+median_delta_abs_BAG_vs_healthy,-1.2279020361738517
+corr_voxels_vs_scaled_BAG,-0.01623368986538047
+corr_voxels_vs_scaled_abs_BAG,0.0024313653987542297
+corr_voxels_vs_delta_BAG_vs_healthy,-0.005594010918382152
+corr_voxels_vs_delta_abs_BAG_vs_healthy,0.0007765255308218949

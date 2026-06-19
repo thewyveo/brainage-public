@@ -1,0 +1,5 @@
+Quick summary:
+       Model   N       MAE      RMSE  BAG_Mean   BAG_STD  Mean_Absolute_BAG  Correlation_Age_vs_Pred
+BrainAgeNeXt 563  3.066978  3.871705  0.818935  3.784105           3.066978                 0.975907
+        Joos 563  4.999540  6.409370 -1.748441  6.166278           4.999540                 0.927481
+        SFCN 563 14.479631 18.089573 13.109558 12.464837          14.479631                 0.847786

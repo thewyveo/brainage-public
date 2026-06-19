@@ -1,0 +1,31 @@
+Subjects compared: 56
+
+Direct comparison between CSVs
+  MAE between predictions        = 2.297205
+  RMSE between predictions       = 2.907886
+  Mean signed difference         = 0.574749
+  Median signed difference       = 0.374158
+  Std signed difference          = 2.876317
+  Min signed difference          = -5.610027
+  Max signed difference          = 6.965210
+  Correlation                    = 0.975010
+
+Absolute difference
+  Mean absolute difference       = 2.297205
+  Median absolute difference     = 1.811336
+  Max absolute difference        = 6.965210
+
+Against chronological age
+  Baseline MAE vs Age            = 2.811089
+  Synthetic MAE vs Age           = 3.401238
+  ΔMAE (Synthetic - Baseline)    = 0.590149
+
+Brain Age Difference shift
+  Mean ΔBAD                      = 0.574749
+  Median ΔBAD                    = 0.374157
+  Std ΔBAD                       = 2.876317
+
+Counts
+  Synthetic > Baseline           = 30
+  Synthetic < Baseline           = 26
+  Synthetic = Baseline           = 0

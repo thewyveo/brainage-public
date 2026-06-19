@@ -1,0 +1,42 @@
+AUTOMATIC POSTPROCESSING COMPLETE
+=================================
+
+Prediction root: \\vumc.nl\Onderzoek\s4e-gpfs2\rath-research-01\Research\neuroRT\students\KayraOzdemir\rerun\pred
+Healthy dir:     \\vumc.nl\Onderzoek\s4e-gpfs2\rath-research-01\Research\neuroRT\students\KayraOzdemir\rerun\pred\healthy
+Exp0 dir:        \\vumc.nl\Onderzoek\s4e-gpfs2\rath-research-01\Research\neuroRT\students\KayraOzdemir\rerun\pred\exp0
+Exp1 dir:        \\vumc.nl\Onderzoek\s4e-gpfs2\rath-research-01\Research\neuroRT\students\KayraOzdemir\rerun\pred\exp1
+Output dir:      data\ALLPOSTPROCESS
+Permutations:    10000
+Age exclusion:   Age <= 25 excluded
+USB Exp1 QC:     excluded/skipped
+
+Healthy CSVs found: 2
+Exp0 CSVs found:    6
+Exp1 CSVs found:    12
+
+Main output files:
+  discovery_manifest.csv
+  age_correction_parameters.csv
+  all_raw_statistical_tests.csv
+  all_raw_descriptive_summaries.csv
+  all_age_residualized_statistical_tests.csv
+  all_age_residualized_descriptive_summaries.csv
+  all_raw_statistical_tests_summary.txt
+  all_age_residualized_statistical_tests_summary.txt
+  cohort_after_age_filter_summary.csv
+  interpretations.txt
+  thesis_table_raw.csv
+  thesis_table_age_residualized.csv
+  thesis_table_combined.csv
+
+Interpretation:
+  Exp0 compares healthy vs synthetic tumor predictions.
+  Exp1 compares healthy vs synthetic tumor vs inpainted predictions.
+  Positive Exp1 Recovery means the inpainted prediction is closer to healthy than the synthetic tumor prediction.
+  Raw BAG is the primary analysis; age-residualized BAG is the sensitivity analysis.
+  Exportable thesis tables are written as CSV and include formatted values with significance stars.
+
+Raw statistical rows: 78
+Raw descriptive rows: 18
+Age-residualized statistical rows: 78
+Age-residualized descriptive rows: 18

@@ -1,0 +1,153 @@
+"""
+Light-weight dataset for 3-D brain age prediction.
+"""
+
+from __future__ import annotations
+from pathlib import Path
+from typing   import List, Optional, Dict
+from collections import OrderedDict
+import logging
+
+import numpy as np
+import torch
+from torch.utils.data import Dataset
+from monai.transforms import CenterSpatialCropd
+from src.custom_transformations import IntensityClipNormalizeD
+import nibabel as nib
+import torchio as tio
+from monai.transforms import ScaleIntensityRangePercentilesd, Compose
+
+__all__ = ["BADataset"]
+
+
+def _positive_mask(x):
+    return x > 0
+
+
+def _min_max_normalize(img):
+    img_min = img.min()
+    img_max = img.max()
+    if img_max - img_min == 0:
+        return torch.zeros_like(img)
+    return (img - img_min) / (img_max - img_min)
+
+
+
+
+class BADataset(Dataset):
+    """
+    Parameters
+    ----------
+    file_paths   : list of paths to .npy volumes
+    age_labels   : same length list/array of float ages
+    modalities   : optional list of modalities per sample
+    sexes        : optional list of sexes per sample
+    sample_wts   : optional per-sample weights
+    transform    : callable transform to run *in the worker / CPU*
+    cache_size   : 0  → no per-worker cache  (recommended)
+                   >0 → per-worker LRU cache of that many samples
+    mode         : 'train' | 'val' | 'test'  (apply transform only in train)
+    apply_clipping : bool (default True) → clip negative values to 0
+    apply_normalization : bool (default True) → apply Z-normalization
+    """
+
+    def __init__(
+        self,
+        file_paths   : List[str | Path],
+        age_labels   : List[float],
+        modalities   : Optional[List[str]] = None,
+        sexes        : Optional[List[str]] = None,
+        sample_wts   : Optional[List[float]] = None,
+        transform    = None,
+        cache_size   : int = 0,
+        mode         : str = "train",
+        crop_size : tuple[int, int, int] = (160, 192, 160),
+        clamp: bool = True,
+        normalize: bool = True,
+        crop: bool = True,
+    ):
+        assert len(file_paths) == len(age_labels), "len(paths) ≠ len(labels)"
+        if modalities is not None:
+            assert len(modalities) == len(file_paths), "len(modalities) ≠ len(paths)"
+        if sexes is not None:
+            assert len(sexes) == len(file_paths), "len(sexes) ≠ len(paths)"
+        self.file_paths    = [str(p) for p in file_paths]
+        self.age_labels    = age_labels
+        self.modalities    = modalities
+        self.sexes         = sexes
+        self.sample_wts    = sample_wts
+        self.transform     = transform
+        self.mode          = mode.lower()
+        self.clamp         = clamp
+        self.normalize     = normalize
+        self.crop          = crop
+
+        
+
+        self.center_crop = CenterSpatialCropd(keys=["image", "seg_gt"], roi_size=crop_size, allow_missing_keys=True)
+        
+        always_transforms = []
+        
+
+
+        
+        if normalize:
+            always_transforms.append(
+            ScaleIntensityRangePercentilesd(
+                keys=["image"],
+                lower=0.5, upper=99.5,  # adjust if needed
+                b_min=0.0, b_max=1.0,
+                clip=True,
+            )
+        )
+  
+        
+        self.always_transforms = Compose(always_transforms)
+
+        self.cache_size    = max(0, cache_size)
+        self._cache        : Dict[int, np.ndarray] = OrderedDict()
+
+    @staticmethod
+    def _load_volume(path: str) -> np.ndarray:
+        if path.endswith(".npy"):
+            return np.load(path)           # (D,H,W)  dtype=float32
+        elif path.endswith(".nii.gz"):
+            return nib.load(path).get_fdata()
+        else:
+            raise ValueError(f"Unsupported file extension: {path}")
+
+    def __len__(self) -> int:
+        return len(self.file_paths)
+
+    def __getitem__(self, idx: int):
+        img_np = self._load_volume(self.file_paths[idx])
+
+        sample = {
+            "image": torch.from_numpy(img_np).unsqueeze(0).float(),
+            "age":   torch.tensor(self.age_labels[idx], dtype=torch.float32),
+            "__image_path__": self.file_paths[idx],  # Add this line
+        }
+        if self.sample_wts is not None:
+            sample["weight"] = torch.tensor(self.sample_wts[idx], dtype=torch.float32)
+        if self.modalities is not None:
+            sample["modality"] = self.modalities[idx]
+        if self.sexes is not None:
+            sample["sex"] = self.sexes[idx]
+
+
+            
+        if self.transform is not None:
+            sample = self.transform(sample)     
+
+        if self.crop:
+            sample = self.center_crop(sample)
+        
+        if self.always_transforms is not None:
+            sample = self.always_transforms(sample)    
+
+        if sample is None:
+            raise RuntimeError(f"Transform returned None for idx {idx}")
+        if sample.get("image") is None:
+            raise RuntimeError(f"Image is None for idx {idx}")
+
+        return sample

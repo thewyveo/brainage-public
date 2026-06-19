@@ -1,0 +1,22 @@
+Scans analyzed: 10
+Runs analyzed: 10
+Tolerance: 1e-06
+
+Predicted Brain Age repeatability
+  Exact repeatability count       = 10/10
+  Within tolerance count          = 10/10
+  Max per-scan range              = 0.000000000000
+  Mean per-scan range             = 0.000000000000
+  Mean per-scan std               = 0.000000000000
+  Pairwise max abs diff overall   = 0.000000000000
+  Pairwise mean abs diff overall  = 0.000000000000
+
+Brain Age Difference repeatability
+  Exact repeatability count       = 10/10
+  Within tolerance count          = 10/10
+  Max per-scan range              = 0.000000000000
+  Mean per-scan range             = 0.000000000000
+  Mean per-scan std               = 0.000000000000
+  Pairwise max abs diff overall   = 0.000000000000
+  Pairwise mean abs diff overall  = 0.000000000000
+  

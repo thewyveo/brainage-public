@@ -1,0 +1,12 @@
+metric,value
+n_rows,3051.0
+n_subjects,26.0
+n_masks,30.0
+mean_effective_voxels,19070.120483038347
+median_effective_voxels,10905.0
+mae,4.041600240977532
+rmse,4.918446354373565
+mean_BAG,2.6600087881712464
+std_BAG,4.137762609972351
+mean_abs_BAG,4.041600240977532
+median_abs_BAG,3.496720903490761

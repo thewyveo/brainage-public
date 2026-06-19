@@ -1,0 +1,5 @@
+assets/test_samples/hcp-sub-002_sub-002_sample_healthy.nii
+assets/test_samples/adhd200-sub-01_sub-001_sample_healthy.nii
+assets/test_samples/adhd200-sub-02_sub-002_sample_healthy.nii
+assets/test_samples/oasis3-OAS30001_sub-001_sample_healthy.nii
+assets/test_samples/oasis3-OAS30002_sub-001_sample_healthy.nii

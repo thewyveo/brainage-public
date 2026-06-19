@@ -1,0 +1,2 @@
+analysis,experiment,model,generator,inpainter,bag_version,n,mean_BAG_healthy,mean_BAG_tumor,mean_BAG_inpaint,mean_Delta_BAG_tumor,mean_Delta_BAG_inpaint,mean_abs_Delta_BAG_tumor,mean_abs_Delta_BAG_inpaint,mean_recovery,median_recovery,mean_percent_recovery,proportion_inpaint_closer,count_inpaint_closer,age_correction_alpha,age_correction_beta
+exp1_raw_BAG,exp1,BNX,CM,BID,raw,520,-0.6798504139936538,-0.5036970274375001,-0.6805322087326923,0.1761533865561539,-0.000681794739038384,1.5260770092492306,5.6949199633878855,-4.168842954138654,-3.53109345,-17454.59738361786,0.15,78,,

@@ -1,0 +1,10 @@
+BraTS-GLI-00005-100-t1n.nii.gz
+BraTS-GLI-00005-101-t1n.nii.gz
+BraTS-GLI-00006-100-t1n.nii.gz
+BraTS-GLI-00006-101-t1n.nii.gz
+BraTS-GLI-00008-100-t1n.nii.gz
+BraTS-GLI-00008-101-t1n.nii.gz
+BraTS-GLI-00008-102-t1n.nii.gz
+BraTS-GLI-00008-103-t1n.nii.gz
+BraTS-GLI-00009-100-t1n.nii.gz
+BraTS-GLI-00009-101-t1n.nii.gz

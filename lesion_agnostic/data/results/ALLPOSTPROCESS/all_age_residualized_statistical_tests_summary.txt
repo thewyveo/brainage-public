@@ -1,0 +1,1435 @@
+SUMMARY OF STATISTICAL TESTS: age_residualized
+===============================================
+
+Interpretation note:
+  This is the sensitivity analysis: BAG residualized against age.
+  The age fit is learned from the healthy baseline only, separately for each model.
+
+DESCRIPTIVE SUMMARIES
+=====================
+                 analysis experiment model generator inpainter      bag_version   n  mean_BAG_healthy  mean_BAG_synthetic  mean_delta_BAG  median_delta_BAG  mean_abs_delta_BAG  median_abs_delta_BAG  count_synth_bag_higher  count_baseline_bag_higher  count_equal_bag  age_correction_alpha  age_correction_beta  mean_BAG_tumor  mean_BAG_inpaint  mean_Delta_BAG_tumor  mean_Delta_BAG_inpaint  mean_abs_Delta_BAG_tumor  mean_abs_Delta_BAG_inpaint  mean_recovery  median_recovery  mean_percent_recovery  proportion_inpaint_closer  count_inpaint_closer
+exp0_age_residualized_BAG       exp0   BNX        CM           age_residualized 520     -1.492142e-02            0.161232        0.176153          0.079834            1.526077              1.122767                   270.0                      250.0              0.0              0.505748            -0.023091             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+exp1_age_residualized_BAG       exp1   BNX        CM       BID age_residualized 520     -1.492142e-02                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        0.161232         -0.015603              0.176153               -0.000682                  1.526077                    5.694920      -4.168843        -3.531093          -17454.597384                   0.150000                  78.0
+exp1_age_residualized_BAG       exp1   BNX        CM       LIT age_residualized 520     -1.492142e-02                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        0.161232         -0.944168              0.176153               -0.929247                  1.526077                    2.503574      -0.977497        -0.360144           -2094.062160                   0.415385                 216.0
+exp1_age_residualized_BAG       exp1   BNX        CM       USB age_residualized 520     -1.492142e-02                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        0.161232         -5.459896              0.176153               -5.444975                  1.526077                   12.156017     -10.629940       -10.467932          -21928.862090                   0.051923                  27.0
+exp0_age_residualized_BAG       exp0   BNX       GLI           age_residualized 521      8.182834e-17            1.672249        1.672249          1.700623            2.260387              1.943047                   404.0                      117.0              0.0              0.505748            -0.023091             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+exp1_age_residualized_BAG       exp1   BNX       GLI       BID age_residualized 521      8.182834e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        1.672249          2.317079              1.672249                2.317079                  2.260387                    4.923187      -2.662800        -1.786213           -2198.572725                   0.299424                 156.0
+exp1_age_residualized_BAG       exp1   BNX       GLI       LIT age_residualized 521      8.182834e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        1.672249          1.043278              1.672249                1.043278                  2.260387                    1.950722       0.309666         0.252831            -680.655844                   0.608445                 317.0
+exp1_age_residualized_BAG       exp1   BNX       GLI       USB age_residualized 521      8.182834e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              0.505748            -0.023091        1.672249         -7.296089              1.672249               -7.296089                  2.260387                   12.617477     -10.357090        -9.418049           -7699.199717                   0.092131                  48.0
+exp0_age_residualized_BAG       exp0   BNX       USB           age_residualized 521      8.182834e-17           -4.901873       -4.901873         -6.080742           12.166819             11.692551                   197.0                      324.0              0.0              0.505748            -0.023091             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+exp0_age_residualized_BAG       exp0  JOOS        CM           age_residualized 521     -1.363806e-17            2.207250        2.207250          0.998482            2.941454              1.415283                   379.0                      142.0              0.0              3.912426            -0.153188             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+exp1_age_residualized_BAG       exp1  JOOS        CM       BID age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        2.207250          6.643045              2.207250                6.643045                  2.941454                    7.389383      -4.447929        -3.276077           -1418.887648                   0.149712                  78.0
+exp1_age_residualized_BAG       exp1  JOOS        CM       LIT age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        2.207250          3.220018              2.207250                3.220018                  2.941454                    4.306078      -1.364624        -0.140159            -293.690858                   0.447217                 233.0
+exp1_age_residualized_BAG       exp1  JOOS        CM       USB age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        2.207250         21.936640              2.207250               21.936640                  2.941454                   22.564799     -19.623345       -19.435848           -8226.113570                   0.047985                  25.0
+exp0_age_residualized_BAG       exp0  JOOS       GLI           age_residualized 521     -1.363806e-17            0.771067        0.771067          0.562683            1.457139              1.034271                   346.0                      175.0              0.0              3.912426            -0.153188             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+exp1_age_residualized_BAG       exp1  JOOS       GLI       BID age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        0.771067          4.921203              0.771067                4.921203                  1.457139                    5.546158      -4.089019        -3.729233           -2450.367419                   0.134357                  70.0
+exp1_age_residualized_BAG       exp1  JOOS       GLI       LIT age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        0.771067         -1.275900              0.771067               -1.275900                  1.457139                    1.869594      -0.412455        -0.175079            -598.112514                   0.445298                 232.0
+exp1_age_residualized_BAG       exp1  JOOS       GLI       USB age_residualized 521     -1.363806e-17                 NaN             NaN               NaN                 NaN                   NaN                     NaN                        NaN              NaN              3.912426            -0.153188        0.771067         21.925144              0.771067               21.925144                  1.457139                   22.523678     -21.066539       -20.811715          -11223.904812                   0.034549                  18.0
+exp0_age_residualized_BAG       exp0  JOOS       USB           age_residualized 521     -1.363806e-17           21.976608       21.976608         22.753360           22.758419             22.882649                   479.0                       42.0              0.0              3.912426            -0.153188             NaN               NaN                   NaN                     NaN                       NaN                         NaN            NaN              NaN                    NaN                        NaN                   NaN
+
+STATISTICAL TESTS
+=================
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_CM
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 520
+mean = 0.176153
+median = 0.079834
+std = 2.235614
+95% CI = [-0.016447, 0.368754]
+alternative = two-sided
+t = 1.796784, p = 0.0729512
+Wilcoxon W = 62486.000000, p = 0.126077
+Permutation p = 0.0714929
+Cohen's d paired = 0.078794
+Rank-biserial = 0.077425
+Age-covariate intercept test: intercept = 0.176153, t = 1.861471, p = 0.0632439
+Age slope: beta = -0.038520, t = -6.248359, p = 8.66414e-10
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_CM
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 520
+mean = 1.526077
+median = 1.122767
+std = 1.641846
+95% CI = [1.384630, 1.667524]
+alternative = greater
+t = 21.195593, p = 1.35117e-72
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.929488
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.526077, t = 21.259647, p = 0
+Age slope: beta = -0.009517, t = -2.035099, p = 0.0423495
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_CM
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 520
+mean = 0.450796
+median = 0.262474
+std = 1.930498
+95% CI = [0.284482, 0.617110]
+alternative = two-sided
+t = 5.324911, p = 1.5067e-07
+Wilcoxon W = 52568.000000, p = 9.73431e-06
+Permutation p = 9.999e-05
+Cohen's d paired = 0.233513
+Rank-biserial = 0.223859
+Age-covariate intercept test: intercept = 0.450796, t = 5.330012, p = 1.46822e-07
+Age slope: beta = -0.007782, t = -1.412400, p = 0.158433
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_BID
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 520
+mean = 0.176153
+median = 0.079834
+std = 2.235614
+95% CI = [-0.016447, 0.368754]
+alternative = two-sided
+t = 1.796784, p = 0.0729512
+Wilcoxon W = 62486.000000, p = 0.126077
+Permutation p = 0.0714929
+Cohen's d paired = 0.078794
+Rank-biserial = 0.077425
+Age-covariate intercept test: intercept = 0.176153, t = 1.861471, p = 0.0632439
+Age slope: beta = -0.038520, t = -6.248359, p = 8.66414e-10
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_BID
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 520
+mean = -0.000682
+median = -0.314350
+std = 7.272857
+95% CI = [-0.627246, 0.625882]
+alternative = two-sided
+t = -0.002138, p = 0.998295
+Wilcoxon W = 66855.000000, p = 0.798529
+Permutation p = 0.9972
+Cohen's d paired = -0.000094
+Rank-biserial = -0.012919
+Age-covariate intercept test: intercept = -0.000682, t = -0.002676, p = 0.997866
+Age slope: beta = -0.285171, t = -17.179355, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_BID
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 520
+mean = 1.526077
+median = 1.122767
+std = 1.641846
+95% CI = [1.384630, 1.667524]
+alternative = greater
+t = 21.195593, p = 1.35117e-72
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.929488
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.526077, t = 21.259647, p = 0
+Age slope: beta = -0.009517, t = -2.035099, p = 0.0423495
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_BID
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 520
+mean = 5.694920
+median = 4.751249
+std = 4.516619
+95% CI = [5.305809, 6.084031]
+alternative = greater
+t = 28.752516, p = 9.36807e-110
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.260881
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 5.694920, t = 29.026187, p = 0
+Age slope: beta = -0.042251, t = -3.305581, p = 0.00101347
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_BID
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 520
+mean = -4.168843
+median = -3.531093
+std = 4.520008
+95% CI = [-4.558246, -3.779440]
+alternative = greater
+t = -21.031874, p = 1
+Wilcoxon W = 8552.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -0.922309
+Rank-biserial = -0.873734
+Age-covariate intercept test: intercept = -4.168843, t = -21.142901, p = 0
+Age slope: beta = 0.032734, t = 2.548340, p = 0.0111112
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_LIT
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 520
+mean = 0.176153
+median = 0.079834
+std = 2.235614
+95% CI = [-0.016447, 0.368754]
+alternative = two-sided
+t = 1.796784, p = 0.0729512
+Wilcoxon W = 62486.000000, p = 0.126077
+Permutation p = 0.0714929
+Cohen's d paired = 0.078794
+Rank-biserial = 0.077425
+Age-covariate intercept test: intercept = 0.176153, t = 1.861471, p = 0.0632439
+Age slope: beta = -0.038520, t = -6.248359, p = 8.66414e-10
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_LIT
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 520
+mean = -0.929247
+median = -0.635099
+std = 3.822228
+95% CI = [-1.258535, -0.599958]
+alternative = two-sided
+t = -5.543908, p = 4.71477e-08
+Wilcoxon W = 45852.000000, p = 1.74613e-10
+Permutation p = 9.999e-05
+Cohen's d paired = -0.243116
+Rank-biserial = -0.323018
+Age-covariate intercept test: intercept = -0.929247, t = -6.096667, p = 2.1181e-09
+Age slope: beta = -0.103978, t = -10.471574, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_LIT
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 520
+mean = 1.526077
+median = 1.122767
+std = 1.641846
+95% CI = [1.384630, 1.667524]
+alternative = greater
+t = 21.195593, p = 1.35117e-72
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.929488
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.526077, t = 21.259647, p = 0
+Age slope: beta = -0.009517, t = -2.035099, p = 0.0423495
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_LIT
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 520
+mean = 2.503574
+median = 1.537228
+std = 3.032265
+95% CI = [2.242341, 2.764807]
+alternative = greater
+t = 18.827601, p = 5.87095e-61
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.825645
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.503574, t = 18.942603, p = 0
+Age slope: beta = 0.023358, t = 2.712870, p = 0.00689228
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_LIT
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 520
+mean = -0.977497
+median = -0.360144
+std = 3.001540
+95% CI = [-1.236083, -0.718911]
+alternative = greater
+t = -7.426307, p = 1
+Wilcoxon W = 46063.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -0.325665
+Rank-biserial = -0.319903
+Age-covariate intercept test: intercept = -0.977497, t = -7.526492, p = 2.32481e-13
+Age slope: beta = -0.032875, t = -3.885569, p = 0.000115334
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_USB
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 520
+mean = 0.176153
+median = 0.079834
+std = 2.235614
+95% CI = [-0.016447, 0.368754]
+alternative = two-sided
+t = 1.796784, p = 0.0729512
+Wilcoxon W = 62486.000000, p = 0.126077
+Permutation p = 0.0714929
+Cohen's d paired = 0.078794
+Rank-biserial = 0.077425
+Age-covariate intercept test: intercept = 0.176153, t = 1.861471, p = 0.0632439
+Age slope: beta = -0.038520, t = -6.248359, p = 8.66414e-10
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_USB
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 520
+mean = -5.444975
+median = -6.994007
+std = 13.119733
+95% CI = [-6.575253, -4.314696]
+alternative = two-sided
+t = -9.463952, p = 1.03166e-19
+Wilcoxon W = 38332.000000, p = 9.83521e-18
+Permutation p = 9.999e-05
+Cohen's d paired = -0.415022
+Rank-biserial = -0.434047
+Age-covariate intercept test: intercept = -5.444975, t = -23.929742, p = 0
+Age slope: beta = -0.784406, t = -52.916609, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_USB
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 520
+mean = 1.526077
+median = 1.122767
+std = 1.641846
+95% CI = [1.384630, 1.667524]
+alternative = greater
+t = 21.195593, p = 1.35117e-72
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.929488
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.526077, t = 21.259647, p = 0
+Age slope: beta = -0.009517, t = -2.035099, p = 0.0423495
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_USB
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 520
+mean = 12.156017
+median = 11.638355
+std = 7.333404
+95% CI = [11.524236, 12.787797]
+alternative = greater
+t = 37.799611, p = 1.81408e-151
+Wilcoxon W = 135460.000000, p = 3.42995e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.657623
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 12.156017, t = 44.525314, p = 0
+Age slope: beta = 0.252862, t = 14.216997, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_CM_USB
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 520
+mean = -10.629940
+median = -10.467932
+std = 7.542879
+95% CI = [-11.279766, -9.980113]
+alternative = greater
+t = -32.136257, p = 1
+Wilcoxon W = 1661.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -1.409268
+Rank-biserial = -0.975476
+Age-covariate intercept test: intercept = -10.629940, t = -37.985818, p = 0
+Age slope: beta = -0.262379, t = -14.392235, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_GLI
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 521
+mean = 1.672249
+median = 1.700623
+std = 2.291415
+95% CI = [1.475031, 1.869466]
+alternative = two-sided
+t = 16.657732, p = 3.05595e-50
+Wilcoxon W = 19692.000000, p = 7.82157e-45
+Permutation p = 9.999e-05
+Cohen's d paired = 0.729788
+Rank-biserial = 0.710371
+Age-covariate intercept test: intercept = 1.672249, t = 16.924352, p = 0
+Age slope: beta = 0.027157, t = 4.216541, p = 2.92694e-05
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_GLI
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.260387
+median = 1.943047
+std = 1.712659
+95% CI = [2.112982, 2.407792]
+alternative = greater
+t = 30.125255, p = 2.03804e-116
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.319811
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.260387, t = 30.340762, p = 0
+Age slope: beta = 0.014130, t = 2.909720, p = 0.00377274
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_GLI
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 521
+mean = 0.453655
+median = 0.422020
+std = 2.305988
+95% CI = [0.255183, 0.652127]
+alternative = two-sided
+t = 4.490425, p = 8.76247e-06
+Wilcoxon W = 52217.000000, p = 4.47195e-06
+Permutation p = 9.999e-05
+Cohen's d paired = 0.196729
+Rank-biserial = 0.231996
+Age-covariate intercept test: intercept = 0.453655, t = 4.487499, p = 8.88259e-06
+Age slope: beta = -0.003742, t = -0.567785, p = 0.570427
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_BID
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 1.672249
+median = 1.700623
+std = 2.291415
+95% CI = [1.475031, 1.869466]
+alternative = two-sided
+t = 16.657732, p = 3.05595e-50
+Wilcoxon W = 19692.000000, p = 7.82157e-45
+Permutation p = 9.999e-05
+Cohen's d paired = 0.729788
+Rank-biserial = 0.710371
+Age-covariate intercept test: intercept = 1.672249, t = 16.924352, p = 0
+Age slope: beta = 0.027157, t = 4.216541, p = 2.92694e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_BID
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 2.317079
+median = 1.685631
+std = 6.051394
+95% CI = [1.796249, 2.837910]
+alternative = two-sided
+t = 8.739857, p = 3.22406e-17
+Wilcoxon W = 41407.000000, p = 1.05431e-14
+Permutation p = 9.999e-05
+Cohen's d paired = 0.382900
+Rank-biserial = 0.390988
+Age-covariate intercept test: intercept = 2.317079, t = 10.869975, p = 0
+Age slope: beta = -0.234721, t = -16.892673, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_BID
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.260387
+median = 1.943047
+std = 1.712659
+95% CI = [2.112982, 2.407792]
+alternative = greater
+t = 30.125255, p = 2.03804e-116
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.319811
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.260387, t = 30.340762, p = 0
+Age slope: beta = 0.014130, t = 2.909720, p = 0.00377274
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_BID
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 4.923187
+median = 3.726357
+std = 4.208821
+95% CI = [4.560943, 5.285431]
+alternative = greater
+t = 26.699602, p = 7.64787e-100
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.169731
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 4.923187, t = 30.476584, p = 0
+Age slope: beta = -0.132578, t = -12.590735, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_BID
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -2.662800
+median = -1.786213
+std = 4.525791
+95% CI = [-3.052325, -2.273274]
+alternative = greater
+t = -13.429593, p = 1
+Wilcoxon W = 28260.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -0.588361
+Rank-biserial = -0.584354
+Age-covariate intercept test: intercept = -2.662800, t = -15.469404, p = 0
+Age slope: beta = 0.146708, t = 13.075222, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_LIT
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 1.672249
+median = 1.700623
+std = 2.291415
+95% CI = [1.475031, 1.869466]
+alternative = two-sided
+t = 16.657732, p = 3.05595e-50
+Wilcoxon W = 19692.000000, p = 7.82157e-45
+Permutation p = 9.999e-05
+Cohen's d paired = 0.729788
+Rank-biserial = 0.710371
+Age-covariate intercept test: intercept = 1.672249, t = 16.924352, p = 0
+Age slope: beta = 0.027157, t = 4.216541, p = 2.92694e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_LIT
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 1.043278
+median = 0.985359
+std = 2.315863
+95% CI = [0.843957, 1.242600]
+alternative = two-sided
+t = 10.282678, p = 1.06035e-22
+Wilcoxon W = 32807.000000, p = 1.39529e-24
+Permutation p = 9.999e-05
+Cohen's d paired = 0.450492
+Rank-biserial = 0.517477
+Age-covariate intercept test: intercept = 1.043278, t = 10.444297, p = 0
+Age slope: beta = 0.027219, t = 4.180286, p = 3.41695e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_LIT
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.260387
+median = 1.943047
+std = 1.712659
+95% CI = [2.112982, 2.407792]
+alternative = greater
+t = 30.125255, p = 2.03804e-116
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.319811
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.260387, t = 30.340762, p = 0
+Age slope: beta = 0.014130, t = 2.909720, p = 0.00377274
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_LIT
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 1.950722
+median = 1.501183
+std = 1.625150
+95% CI = [1.810848, 2.090595]
+alternative = greater
+t = 27.398116, p = 2.95083e-103
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.200333
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.950722, t = 27.671314, p = 0
+Age slope: beta = 0.015530, t = 3.379642, p = 0.000780414
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_LIT
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = 0.309666
+median = 0.252831
+std = 1.399912
+95% CI = [0.189178, 0.430153]
+alternative = greater
+t = 5.049068, p = 3.07593e-07
+Wilcoxon W = 87126.000000, p = 1.30269e-08
+Permutation p = 9.999e-05
+Cohen's d paired = 0.221204
+Rank-biserial = 0.281444
+Age-covariate intercept test: intercept = 0.309666, t = 5.044805, p = 6.28785e-07
+Age slope: beta = -0.001400, t = -0.349895, p = 0.72656
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_USB
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 1.672249
+median = 1.700623
+std = 2.291415
+95% CI = [1.475031, 1.869466]
+alternative = two-sided
+t = 16.657732, p = 3.05595e-50
+Wilcoxon W = 19692.000000, p = 7.82157e-45
+Permutation p = 9.999e-05
+Cohen's d paired = 0.729788
+Rank-biserial = 0.710371
+Age-covariate intercept test: intercept = 1.672249, t = 16.924352, p = 0
+Age slope: beta = 0.027157, t = 4.216541, p = 2.92694e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_USB
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = -7.296089
+median = -8.654484
+std = 12.952109
+95% CI = [-8.410850, -6.181328]
+alternative = two-sided
+t = -12.857854, p = 4.76199e-33
+Wilcoxon W = 29756.000000, p = 9.85604e-29
+Permutation p = 9.999e-05
+Cohen's d paired = -0.563313
+Rank-biserial = -0.562351
+Age-covariate intercept test: intercept = -7.296089, t = -31.222001, p = 0
+Age slope: beta = -0.768767, t = -50.468908, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_USB
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.260387
+median = 1.943047
+std = 1.712659
+95% CI = [2.112982, 2.407792]
+alternative = greater
+t = 30.125255, p = 2.03804e-116
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.319811
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.260387, t = 30.340762, p = 0
+Age slope: beta = 0.014130, t = 2.909720, p = 0.00377274
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_USB
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 12.617477
+median = 11.781707
+std = 7.847645
+95% CI = [11.942047, 13.292907]
+alternative = greater
+t = 36.698816, p = 9.73942e-147
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.607804
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 12.617477, t = 48.494658, p = 0
+Age slope: beta = 0.334500, t = 19.723146, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: BNX_GLI_USB
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -10.357090
+median = -9.418049
+std = 8.037001
+95% CI = [-11.048818, -9.665362]
+alternative = greater
+t = -29.414574, p = 1
+Wilcoxon W = 2791.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -1.288676
+Rank-biserial = -0.958950
+Age-covariate intercept test: intercept = -10.357090, t = -37.161676, p = 0
+Age slope: beta = -0.320370, t = -17.634688, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_USB
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 521
+mean = -4.901873
+median = -6.080742
+std = 13.309731
+95% CI = [-6.047413, -3.756332]
+alternative = two-sided
+t = -8.406430, p = 4.07785e-16
+Wilcoxon W = 41657.000000, p = 1.8621e-14
+Permutation p = 9.999e-05
+Cohen's d paired = -0.368292
+Rank-biserial = -0.387311
+Age-covariate intercept test: intercept = -4.901873, t = -22.877270, p = 0
+Age slope: beta = -0.806232, t = -57.724632, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_USB
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 521
+mean = 12.166819
+median = 11.692551
+std = 7.273744
+95% CI = [11.540783, 12.792855]
+alternative = greater
+t = 38.180173, p = 2.92649e-153
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.672704
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 12.166819, t = 44.301568, p = 0
+Age slope: beta = 0.240918, t = 13.457679, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: BNX_USB
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 521
+mean = 8.799364
+median = 8.800617
+std = 7.727229
+95% CI = [8.134297, 9.464430]
+alternative = two-sided
+t = 25.992399, p = 4.51981e-96
+Wilcoxon W = 6306.000000, p = 5.48276e-72
+Permutation p = 9.999e-05
+Cohen's d paired = 1.138748
+Rank-biserial = 0.907252
+Age-covariate intercept test: intercept = 8.799364, t = 30.212844, p = 0
+Age slope: beta = 0.257223, t = 13.549054, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_CM
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 521
+mean = 2.207250
+median = 0.998482
+std = 4.743268
+95% CI = [1.799007, 2.615493]
+alternative = two-sided
+t = 10.621667, p = 5.52681e-24
+Wilcoxon W = 27664.000000, p = 8.94053e-32
+Permutation p = 9.999e-05
+Cohen's d paired = 0.465344
+Rank-biserial = 0.593120
+Age-covariate intercept test: intercept = 2.207250, t = 10.786570, p = 0
+Age slope: beta = -0.055434, t = -4.155899, p = 3.78949e-05
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_CM
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.941454
+median = 1.415283
+std = 4.325636
+95% CI = [2.569156, 3.313753]
+alternative = greater
+t = 15.521404, p = 3.19361e-45
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.680005
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.941454, t = 15.603413, p = 0
+Age slope: beta = -0.031351, t = -2.551376, p = 0.0110155
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_CM
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 521
+mean = 1.017565
+median = 0.259571
+std = 4.117470
+95% CI = [0.663183, 1.371947]
+alternative = two-sided
+t = 5.640929, p = 2.78053e-08
+Wilcoxon W = 54266.000000, p = 6.54794e-05
+Permutation p = 9.999e-05
+Cohen's d paired = 0.247134
+Rank-biserial = 0.201859
+Age-covariate intercept test: intercept = 1.017565, t = 5.694603, p = 2.07233e-08
+Age slope: beta = -0.038530, t = -3.307992, p = 0.00100484
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_BID
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 2.207250
+median = 0.998482
+std = 4.743268
+95% CI = [1.799007, 2.615493]
+alternative = two-sided
+t = 10.621667, p = 5.52681e-24
+Wilcoxon W = 27664.000000, p = 8.94053e-32
+Permutation p = 9.999e-05
+Cohen's d paired = 0.465344
+Rank-biserial = 0.593120
+Age-covariate intercept test: intercept = 2.207250, t = 10.786570, p = 0
+Age slope: beta = -0.055434, t = -4.155899, p = 3.78949e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_BID
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 6.643045
+median = 5.365707
+std = 7.972721
+95% CI = [5.956850, 7.329240]
+alternative = two-sided
+t = 19.018642, p = 1.29526e-61
+Wilcoxon W = 9517.000000, p = 7.0918e-65
+Permutation p = 9.999e-05
+Cohen's d paired = 0.833222
+Rank-biserial = 0.860025
+Age-covariate intercept test: intercept = 6.643045, t = 20.234679, p = 0
+Age slope: beta = -0.178561, t = -8.344022, p = 6.66134e-16
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_BID
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.941454
+median = 1.415283
+std = 4.325636
+95% CI = [2.569156, 3.313753]
+alternative = greater
+t = 15.521404, p = 3.19361e-45
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.680005
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.941454, t = 15.603413, p = 0
+Age slope: beta = -0.031351, t = -2.551376, p = 0.0110155
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_BID
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 7.389383
+median = 5.518471
+std = 7.284999
+95% CI = [6.762378, 8.016387]
+alternative = greater
+t = 23.152480, p = 2.47397e-82
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.014329
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 7.389383, t = 24.258020, p = 0
+Age slope: beta = -0.142972, t = -7.200419, p = 2.11986e-12
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_BID
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -4.447929
+median = -3.276077
+std = 5.696581
+95% CI = [-4.938221, -3.957636]
+alternative = greater
+t = -17.822244, p = 1
+Wilcoxon W = 10631.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -0.780807
+Rank-biserial = -0.843640
+Age-covariate intercept test: intercept = -4.447929, t = -18.670298, p = 0
+Age slope: beta = 0.111621, t = 7.187821, p = 2.30549e-12
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_LIT
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 2.207250
+median = 0.998482
+std = 4.743268
+95% CI = [1.799007, 2.615493]
+alternative = two-sided
+t = 10.621667, p = 5.52681e-24
+Wilcoxon W = 27664.000000, p = 8.94053e-32
+Permutation p = 9.999e-05
+Cohen's d paired = 0.465344
+Rank-biserial = 0.593120
+Age-covariate intercept test: intercept = 2.207250, t = 10.786570, p = 0
+Age slope: beta = -0.055434, t = -4.155899, p = 3.78949e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_LIT
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 3.220018
+median = 0.632454
+std = 7.962937
+95% CI = [2.534665, 3.905372]
+alternative = two-sided
+t = 9.230046, p = 6.80534e-19
+Wilcoxon W = 40247.000000, p = 7.03295e-16
+Permutation p = 9.999e-05
+Cohen's d paired = 0.404376
+Rank-biserial = 0.408050
+Age-covariate intercept test: intercept = 3.220018, t = 9.447139, p = 0
+Age slope: beta = -0.112740, t = -5.074319, p = 5.42564e-07
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_LIT
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.941454
+median = 1.415283
+std = 4.325636
+95% CI = [2.569156, 3.313753]
+alternative = greater
+t = 15.521404, p = 3.19361e-45
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.680005
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.941454, t = 15.603413, p = 0
+Age slope: beta = -0.031351, t = -2.551376, p = 0.0110155
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_LIT
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 4.306078
+median = 1.587601
+std = 7.430940
+95% CI = [3.666513, 4.945643]
+alternative = greater
+t = 13.226868, p = 6.20466e-35
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.579480
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 4.306078, t = 13.459304, p = 0
+Age slope: beta = -0.091941, t = -4.408683, p = 1.26469e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_LIT
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -1.364624
+median = -0.140159
+std = 5.896095
+95% CI = [-1.872088, -0.857159]
+alternative = greater
+t = -5.282838, p = 1
+Wilcoxon W = 57482.000000, p = 0.998881
+Permutation p = 1
+Cohen's d paired = -0.231445
+Rank-biserial = -0.154558
+Age-covariate intercept test: intercept = -1.364624, t = -5.344721, p = 1.35858e-07
+Age slope: beta = 0.060590, t = 3.640563, p = 0.000299308
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_USB
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 2.207250
+median = 0.998482
+std = 4.743268
+95% CI = [1.799007, 2.615493]
+alternative = two-sided
+t = 10.621667, p = 5.52681e-24
+Wilcoxon W = 27664.000000, p = 8.94053e-32
+Permutation p = 9.999e-05
+Cohen's d paired = 0.465344
+Rank-biserial = 0.593120
+Age-covariate intercept test: intercept = 2.207250, t = 10.786570, p = 0
+Age slope: beta = -0.055434, t = -4.155899, p = 3.78949e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_USB
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 21.936640
+median = 22.592876
+std = 14.360468
+95% CI = [20.700665, 23.172616]
+alternative = two-sided
+t = 34.867466, p = 3.27746e-138
+Wilcoxon W = 2111.000000, p = 7.56461e-82
+Permutation p = 9.999e-05
+Cohen's d paired = 1.527571
+Rank-biserial = 0.968952
+Age-covariate intercept test: intercept = 21.936640, t = 86.491037, p = 0
+Age slope: beta = -0.855976, t = -51.775157, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_USB
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 2.941454
+median = 1.415283
+std = 4.325636
+95% CI = [2.569156, 3.313753]
+alternative = greater
+t = 15.521404, p = 3.19361e-45
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 0.680005
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 2.941454, t = 15.603413, p = 0
+Age slope: beta = -0.031351, t = -2.551376, p = 0.0110155
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_USB
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 22.564799
+median = 22.592876
+std = 13.349731
+95% CI = [21.415816, 23.713782]
+alternative = greater
+t = 38.581385, p = 5.25236e-155
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.690281
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 22.564799, t = 91.513949, p = 0
+Age slope: beta = -0.788482, t = -49.057615, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_CM_USB
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -19.623345
+median = -19.435848
+std = 13.564345
+95% CI = [-20.790800, -18.455890]
+alternative = greater
+t = -33.021216, p = 1
+Wilcoxon W = 1282.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -1.446686
+Rank-biserial = -0.981144
+Age-covariate intercept test: intercept = -19.623345, t = -64.045231, p = 0
+Age slope: beta = 0.757131, t = 37.909088, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_GLI
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 521
+mean = 0.771067
+median = 0.562683
+std = 1.892618
+95% CI = [0.608173, 0.933960]
+alternative = two-sided
+t = 9.299249, p = 3.90071e-19
+Wilcoxon W = 36893.000000, p = 1.48918e-19
+Permutation p = 9.999e-05
+Cohen's d paired = 0.407407
+Rank-biserial = 0.457380
+Age-covariate intercept test: intercept = 0.771067, t = 9.435245, p = 0
+Age slope: beta = -0.021520, t = -4.039871, p = 6.15688e-05
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_GLI
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 521
+mean = 1.457139
+median = 1.034271
+std = 1.431906
+95% CI = [1.333898, 1.580380]
+alternative = greater
+t = 23.227655, p = 1.04838e-82
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.017622
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.457139, t = 23.208305, p = 0
+Age slope: beta = 0.001498, t = 0.366034, p = 0.714489
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_GLI
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 521
+mean = 0.150262
+median = 0.091453
+std = 1.895151
+95% CI = [-0.012849, 0.313374]
+alternative = two-sided
+t = 1.809779, p = 0.0709072
+Wilcoxon W = 62491.000000, p = 0.10967
+Permutation p = 0.0757924
+Cohen's d paired = 0.079288
+Rank-biserial = 0.080886
+Age-covariate intercept test: intercept = 0.150262, t = 1.815074, p = 0.0700896
+Age slope: beta = -0.010856, t = -2.011776, p = 0.0447599
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_BID
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 0.771067
+median = 0.562683
+std = 1.892618
+95% CI = [0.608173, 0.933960]
+alternative = two-sided
+t = 9.299249, p = 3.90071e-19
+Wilcoxon W = 36893.000000, p = 1.48918e-19
+Permutation p = 9.999e-05
+Cohen's d paired = 0.407407
+Rank-biserial = 0.457380
+Age-covariate intercept test: intercept = 0.771067, t = 9.435245, p = 0
+Age slope: beta = -0.021520, t = -4.039871, p = 6.15688e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_BID
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 4.921203
+median = 4.885467
+std = 4.577681
+95% CI = [4.527212, 5.315195]
+alternative = two-sided
+t = 24.538311, p = 6.72926e-89
+Wilcoxon W = 8491.000000, p = 4.16309e-67
+Permutation p = 9.999e-05
+Cohen's d paired = 1.075043
+Rank-biserial = 0.875115
+Age-covariate intercept test: intercept = 4.921203, t = 27.106744, p = 0
+Age slope: beta = -0.127212, t = -10.749614, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_BID
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 1.457139
+median = 1.034271
+std = 1.431906
+95% CI = [1.333898, 1.580380]
+alternative = greater
+t = 23.227655, p = 1.04838e-82
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.017622
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.457139, t = 23.208305, p = 0
+Age slope: beta = 0.001498, t = 0.366034, p = 0.714489
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_BID
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 5.546158
+median = 4.959812
+std = 3.794858
+95% CI = [5.219543, 5.872774]
+alternative = greater
+t = 33.359194, p = 1.32246e-131
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.461493
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 5.546158, t = 36.197974, p = 0
+Age slope: beta = -0.096452, t = -9.657479, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_BID
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -4.089019
+median = -3.729233
+std = 3.820273
+95% CI = [-4.417822, -3.760216]
+alternative = greater
+t = -24.431131, p = 1
+Wilcoxon W = 6900.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -1.070347
+Rank-biserial = -0.898515
+Age-covariate intercept test: intercept = -4.089019, t = -26.552246, p = 0
+Age slope: beta = 0.097950, t = 9.757693, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_LIT
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 0.771067
+median = 0.562683
+std = 1.892618
+95% CI = [0.608173, 0.933960]
+alternative = two-sided
+t = 9.299249, p = 3.90071e-19
+Wilcoxon W = 36893.000000, p = 1.48918e-19
+Permutation p = 9.999e-05
+Cohen's d paired = 0.407407
+Rank-biserial = 0.457380
+Age-covariate intercept test: intercept = 0.771067, t = 9.435245, p = 0
+Age slope: beta = -0.021520, t = -4.039871, p = 6.15688e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_LIT
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = -1.275900
+median = -1.083315
+std = 2.167599
+95% CI = [-1.462460, -1.089339]
+alternative = two-sided
+t = -13.435581, p = 1.54234e-35
+Wilcoxon W = 25980.000000, p = 2.43422e-34
+Permutation p = 9.999e-05
+Cohen's d paired = -0.588623
+Rank-biserial = -0.617888
+Age-covariate intercept test: intercept = -1.275900, t = -14.041829, p = 0
+Age slope: beta = -0.041454, t = -6.999021, p = 8.00027e-12
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_LIT
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 1.457139
+median = 1.034271
+std = 1.431906
+95% CI = [1.333898, 1.580380]
+alternative = greater
+t = 23.227655, p = 1.04838e-82
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.017622
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.457139, t = 23.208305, p = 0
+Age slope: beta = 0.001498, t = 0.366034, p = 0.714489
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_LIT
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 1.869594
+median = 1.351120
+std = 1.681497
+95% CI = [1.724871, 2.014317]
+alternative = greater
+t = 25.378736, p = 2.37608e-93
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.111863
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.869594, t = 26.263923, p = 0
+Age slope: beta = 0.028569, t = 6.156852, p = 1.48694e-09
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_LIT
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -0.412455
+median = -0.175079
+std = 1.994369
+95% CI = [-0.584106, -0.240804]
+alternative = greater
+t = -4.720522, p = 0.999998
+Wilcoxon W = 53401.000000, p = 0.999989
+Permutation p = 1
+Cohen's d paired = -0.206810
+Rank-biserial = -0.214581
+Age-covariate intercept test: intercept = -0.412455, t = -4.821885, p = 1.87114e-06
+Age slope: beta = -0.027070, t = -4.855065, p = 1.59499e-06
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_USB
+Test: tumor_induced_signed_delta_BAG
+Meaning: Tests whether tumor insertion changes BAG relative to healthy baseline.
+n = 521
+mean = 0.771067
+median = 0.562683
+std = 1.892618
+95% CI = [0.608173, 0.933960]
+alternative = two-sided
+t = 9.299249, p = 3.90071e-19
+Wilcoxon W = 36893.000000, p = 1.48918e-19
+Permutation p = 9.999e-05
+Cohen's d paired = 0.407407
+Rank-biserial = 0.457380
+Age-covariate intercept test: intercept = 0.771067, t = 9.435245, p = 0
+Age slope: beta = -0.021520, t = -4.039871, p = 6.15688e-05
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_USB
+Test: inpaint_signed_delta_BAG
+Meaning: Tests whether inpainted image still differs from healthy baseline.
+n = 521
+mean = 21.925144
+median = 22.812893
+std = 14.389855
+95% CI = [20.686639, 23.163649]
+alternative = two-sided
+t = 34.778025, p = 8.3528e-138
+Wilcoxon W = 2142.000000, p = 8.99531e-82
+Permutation p = 9.999e-05
+Cohen's d paired = 1.523653
+Rank-biserial = 0.968496
+Age-covariate intercept test: intercept = 21.925144, t = 86.180041, p = 0
+Age slope: beta = -0.857556, t = -51.711302, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_USB
+Test: tumor_abs_delta_BAG
+Meaning: Tests whether tumor causes nonzero absolute BAG perturbation.
+n = 521
+mean = 1.457139
+median = 1.034271
+std = 1.431906
+95% CI = [1.333898, 1.580380]
+alternative = greater
+t = 23.227655, p = 1.04838e-82
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.017622
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 1.457139, t = 23.208305, p = 0
+Age slope: beta = 0.001498, t = 0.366034, p = 0.714489
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_USB
+Test: inpaint_abs_delta_BAG
+Meaning: Tests whether inpainted image has nonzero absolute BAG perturbation.
+n = 521
+mean = 22.523678
+median = 22.812893
+std = 13.431777
+95% CI = [21.367633, 23.679723]
+alternative = greater
+t = 38.275837, p = 1.12006e-153
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.676895
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 22.523678, t = 90.381443, p = 0
+Age slope: beta = -0.792554, t = -48.789641, p = 0
+
+Analysis: exp1_age_residualized_BAG
+Label: JOOS_GLI_USB
+Test: recovery_abs_tumor_minus_abs_inpaint
+Meaning: Primary recovery test. Positive means inpainting is closer to healthy than tumor.
+n = 521
+mean = -21.066539
+median = -20.811715
+std = 13.547810
+95% CI = [-22.232571, -19.900507]
+alternative = greater
+t = -35.493020, p = 1
+Wilcoxon W = 526.000000, p = 1
+Permutation p = 1
+Cohen's d paired = -1.554977
+Rank-biserial = -0.992264
+Age-covariate intercept test: intercept = -21.066539, t = -81.358890, p = 0
+Age slope: beta = 0.794052, t = 47.045661, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_USB
+Test: generator_signed_delta_BAG
+Meaning: Tests whether synthetic tumor generator shifts BAG relative to healthy baseline.
+n = 521
+mean = 21.976608
+median = 22.753360
+std = 14.711167
+95% CI = [20.710449, 23.242767]
+alternative = two-sided
+t = 34.098274, p = 1.05505e-134
+Wilcoxon W = 2470.000000, p = 5.59545e-81
+Permutation p = 9.999e-05
+Cohen's d paired = 1.493873
+Rank-biserial = 0.963671
+Age-covariate intercept test: intercept = 21.976608, t = 77.863619, p = 0
+Age slope: beta = -0.861462, t = -46.824013, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_USB
+Test: generator_abs_delta_BAG
+Meaning: Tests whether synthetic tumor generator causes nonzero absolute BAG perturbation.
+n = 521
+mean = 22.758419
+median = 22.882649
+std = 13.467621
+95% CI = [21.599289, 23.917549]
+alternative = greater
+t = 38.571814, p = 5.77966e-155
+Wilcoxon W = 135981.000000, p = 2.35512e-87
+Permutation p = 9.999e-05
+Cohen's d paired = 1.689862
+Rank-biserial = 1.000000
+Age-covariate intercept test: intercept = 22.758419, t = 88.610852, p = 0
+Age slope: beta = -0.789758, t = -47.173451, p = 0
+
+Analysis: exp0_age_residualized_BAG
+Label: JOOS_USB
+Test: synthetic_minus_healthy_absolute_error
+Meaning: Tests whether absolute BAG error differs between synthetic tumor and healthy baseline.
+n = 521
+mean = 17.888388
+median = 17.282959
+std = 14.008978
+95% CI = [16.682665, 19.094112]
+alternative = two-sided
+t = 29.146313, p = 2.00003e-111
+Wilcoxon W = 3524.000000, p = 1.87075e-78
+Permutation p = 9.999e-05
+Cohen's d paired = 1.276923
+Rank-biserial = 0.948169
+Age-covariate intercept test: intercept = 17.888388, t = 93.039122, p = 0
+Age slope: beta = -0.866455, t = -69.135195, p = 0

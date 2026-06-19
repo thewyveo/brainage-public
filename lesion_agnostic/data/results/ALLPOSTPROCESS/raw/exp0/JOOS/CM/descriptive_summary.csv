@@ -1,0 +1,2 @@
+analysis,experiment,model,generator,inpainter,bag_version,n,mean_BAG_healthy,mean_BAG_synthetic,mean_delta_BAG,median_delta_BAG,mean_abs_delta_BAG,median_abs_delta_BAG,count_synth_bag_higher,count_baseline_bag_higher,count_equal_bag,age_correction_alpha,age_correction_beta
+exp0_raw_BAG,exp0,JOOS,CM,,raw,521,-3.856797019452207,-1.6495469919117083,2.2072500275404994,0.9984816999999999,2.941454183363916,1.415283164,379,142,0,,

@@ -1,0 +1,451 @@
+import torch
+import random
+import torch.nn.functional as F
+from monai.transforms.transform import MapTransform
+from scipy.ndimage import gaussian_filter
+import numpy as np
+
+
+
+class RandGammaD(MapTransform):
+    def __init__(self, keys, log_gamma_std: float = 0.2, prob: float = 0.5, gamma_range: tuple[float, float] = (0.5, 2.0)):
+        super().__init__(keys)
+        self.log_gamma_std = log_gamma_std
+        self.prob = prob
+        self.gamma_range = gamma_range
+
+    def __call__(self, data):
+        d = dict(data)
+        img = d[self.keys[0]]
+        if random.random() < self.prob:
+            log_g = torch.randn(1, device=img.device) * self.log_gamma_std
+            gamma = torch.exp(log_g).item()
+            gamma = max(self.gamma_range[0], min(self.gamma_range[1], gamma))
+            
+            epsilon = 1e-7
+            img_clamped = torch.clamp(img, min=epsilon)
+            result = img_clamped.pow(gamma)
+            result = torch.where(img == 0, torch.zeros_like(result), result)
+            
+            d[self.keys[0]] = result
+        return d
+
+class RandomResolutionD(MapTransform):
+    def __init__(self,
+                 keys,
+                 min_res: float = 1.0,
+                 max_res_iso: float = 4.0,
+                 prob: float = 0.5):
+        super().__init__(keys)
+        self.min_res = min_res
+        self.max_res_iso = max_res_iso
+        self.prob = prob
+
+    def __call__(self, data):
+        d = dict(data)
+        img = d[self.keys[0]]  # shape = (C,H,W,D)
+        if random.random() < self.prob:
+            shape = img.shape[1:]
+            lr = random.uniform(self.min_res, self.max_res_iso)
+            img_np = img.cpu().numpy()
+            blurred = np.stack([
+                gaussian_filter(img_np[c], sigma=lr)
+                for c in range(img_np.shape[0])
+            ], axis=0)
+            img = torch.from_numpy(blurred).to(img.device).type(img.dtype)
+            new_size = [max(1, int(s / lr)) for s in shape]
+            img = F.interpolate(
+                img.unsqueeze(0),
+                size=new_size,
+                mode='trilinear',
+                align_corners=False
+            ).squeeze(0)
+            img = F.interpolate(
+                img.unsqueeze(0),
+                size=shape,
+                mode='trilinear',
+                align_corners=False
+            ).squeeze(0)
+            d[self.keys[0]] = img
+        return d
+
+from monai.transforms import MapTransform
+from typing import Sequence, Mapping, Hashable, Dict
+import numpy as np
+import torch, random
+
+
+class HemisphereAwareFlipD(MapTransform):
+    """
+    Random left–right flip that also swaps hemisphere‐specific labels so the
+    anatomy stays consistent.
+
+    • `generation_labels`  must list labels [neutral … left … right] in that
+      exact SynthSeg order.
+    • `n_neutral_labels`   = how many labels at the beginning are non-sided.
+    """
+
+    def __init__(
+        self,
+        keys: Sequence[str],
+        generation_labels: np.ndarray,
+        n_neutral_labels: int,
+        spatial_axis: int = 0,   # 0 = left–right in the label volume
+        prob: float = 0.5,
+        allow_missing_keys: bool = False,
+    ):
+        super().__init__(keys, allow_missing_keys)
+        self.spatial_axis = spatial_axis
+        self.prob = prob
+
+        n_labels   = len(generation_labels)
+        neutral    = generation_labels[:n_neutral_labels]
+        n_sided    = (n_labels - n_neutral_labels) // 2
+        left       = generation_labels[n_neutral_labels : n_neutral_labels + n_sided]
+        right      = generation_labels[n_neutral_labels + n_sided :]
+
+        swapped    = np.concatenate([neutral, right, left])
+        max_val    = max(generation_labels.max(), swapped.max())
+        lut        = np.arange(max_val + 1, dtype=np.int64)
+        for a, b in zip(generation_labels, swapped):
+            lut[a] = b
+        self._lut = lut
+
+    def _flip_ndarray(self, arr: np.ndarray, axis: int) -> np.ndarray:
+        return np.flip(arr, axis=axis).copy()     # copy: keep array C-contiguous
+
+    def _flip_tensor(self, ten: torch.Tensor, axis: int) -> torch.Tensor:
+        return torch.flip(ten, dims=[axis])
+
+    def __call__(self, data: Mapping[Hashable, np.ndarray]) -> Dict[Hashable, np.ndarray]:  # noqa: D401
+        d = dict(data)
+
+        if random.random() >= self.prob:
+            return d   # no flip this time
+
+        for key in self.key_iterator(d):
+            arr = d[key]
+
+            if arr.ndim == 4:
+                flip_axis = self.spatial_axis + 1
+            else:                      # (D, H, W)
+                flip_axis = self.spatial_axis
+
+            if isinstance(arr, torch.Tensor):
+                arr_flipped = self._flip_tensor(arr, flip_axis)
+            else:  # numpy
+                arr_flipped = self._flip_ndarray(arr, flip_axis)
+
+            if key == self.keys[0]:
+                if isinstance(arr_flipped, torch.Tensor):
+                    arr_int   = arr_flipped.long()
+                    arr_swapped = torch.as_tensor(self._lut, device=arr_int.device)[arr_int]
+                    arr_flipped = arr_swapped.type(arr_flipped.dtype)
+                else:
+                    arr_flipped = self._lut[arr_flipped.astype(np.int64)].astype(arr_flipped.dtype)
+
+            d[key] = arr_flipped
+
+        return d
+class DynamicResolutionD(MapTransform):
+    """
+    Dynamic resolution sampling following SynthSeg's approach.
+    
+    This transform:
+    1. Samples a random resolution per batch/sample
+    2. Applies blur corresponding to the sampled resolution
+    3. Optionally downsamples and upsamples to simulate acquisition
+    """
+    
+    def __init__(self,
+                 keys,
+                 atlas_res: float = 1.0,
+                 max_res_iso: float = 4.0,
+                 max_res_aniso: float = 8.0,
+                 thickness_factor: float = 1.0,
+                 randomise_res: bool = True,
+                 prob: float = 0.5):
+        super().__init__(keys)
+        self.atlas_res = atlas_res
+        self.max_res_iso = max_res_iso
+        self.max_res_aniso = max_res_aniso
+        self.thickness_factor = thickness_factor
+        self.randomise_res = randomise_res
+        self.prob = prob
+    
+    def _sample_resolution(self):
+        """Sample random resolution following SynthSeg logic."""
+        if not self.randomise_res:
+            return self.atlas_res, self.atlas_res
+        
+        # Sample isotropic resolution
+        if random.random() < 0.7:  # 70% chance for isotropic
+            resolution = random.uniform(self.atlas_res, self.max_res_iso)
+            blur_res = resolution
+        else:  # 30% chance for anisotropic
+            # Sample one dimension to be low resolution
+            resolution = random.uniform(self.atlas_res, self.max_res_aniso)
+            blur_res = resolution * self.thickness_factor
+        
+        return resolution, blur_res
+    
+    def _blurring_sigma_for_downsampling(self, atlas_res, target_res, thickness=None):
+        """Calculate sigma for Gaussian blur to simulate resolution."""
+        if thickness is None:
+            thickness = target_res
+        
+        # Following SynthSeg's formula
+        sigma = 0.75 * thickness / atlas_res
+        return max(0, sigma)
+    
+    def __call__(self, data):
+        d = dict(data)
+        
+        if random.random() < self.prob:
+            resolution, blur_res = self._sample_resolution()
+            
+            for key in self.keys:
+                img = d[key]
+                
+                sigma = self._blurring_sigma_for_downsampling(
+                    self.atlas_res, resolution, blur_res
+                )
+                
+                if sigma > 0:
+                    img_np = img.cpu().numpy()
+                    blurred = np.stack([
+                        gaussian_filter(img_np[c], sigma=sigma)
+                        for c in range(img_np.shape[0])
+                    ], axis=0)
+                    img = torch.from_numpy(blurred).to(img.device).type(img.dtype)
+                
+                if resolution > self.atlas_res * 1.1:
+                    original_shape = img.shape[1:]
+                    
+                    downsample_factor = resolution / self.atlas_res
+                    new_size = [max(1, int(s / downsample_factor)) for s in original_shape]
+                    
+                    img = F.interpolate(
+                        img.unsqueeze(0),
+                        size=new_size,
+                        mode='trilinear',
+                        align_corners=False,
+                        antialias=False
+                    ).squeeze(0)
+                    
+                    img = F.interpolate(
+                        img.unsqueeze(0),
+                        size=original_shape,
+                        mode='trilinear',
+                        align_corners=False
+                    ).squeeze(0)
+                
+                d[key] = img
+        
+        return d
+
+
+class IntensityClipNormalizeD(MapTransform):
+    """Intensity clipping and normalization using percentiles."""
+    
+    def __init__(self,
+                 keys,
+                 clip_percentiles: tuple[float, float] = (1.0, 99.0),  # 1% and 99% percentiles
+                 normalise: bool = True,
+                 gamma_std: float = 0.5,
+                 separate_channels: bool = True,
+                 prob: float = 0.95):
+        super().__init__(keys)
+        self.clip_percentiles = clip_percentiles
+        self.normalise = normalise
+        self.gamma_std = gamma_std
+        self.separate_channels = separate_channels
+        self.prob = prob
+    
+    def __call__(self, data):
+        d = dict(data)
+        
+        if random.random() < self.prob:
+            for key in self.keys:
+                img = d[key]
+                
+                if torch.isnan(img).any() or torch.isinf(img).any():
+                    print(f"WARNING: Input image already contains NaN or Inf values. Skipping normalization.")
+                    continue
+                
+                try:
+                    if self.separate_channels:
+                        for c in range(img.shape[0]):
+                            channel = img[c]
+                            
+                            if torch.all(channel == 0) or (channel.max() - channel.min()) < 1e-6:
+                                continue
+                            
+                            low_percentile, high_percentile = self.clip_percentiles
+                            min_val = torch.quantile(channel, low_percentile / 100.0)
+                            max_val = torch.quantile(channel, high_percentile / 100.0)
+                            
+                            if max_val <= min_val:
+                                max_val = min_val + 1e-6
+                            
+                            channel = torch.clamp(channel, min_val, max_val)
+                            
+                            if self.normalise:
+                                norm_channel = (channel - min_val) / (max_val - min_val)
+                                if torch.isnan(norm_channel).any():
+                                    print(f"WARNING: NaN values detected after normalization. Using min-max scaling instead.")
+                                    if channel.max() - channel.min() > 0:
+                                        norm_channel = (channel - channel.min()) / (channel.max() - channel.min())
+                                    else:
+                                        norm_channel = torch.zeros_like(channel)
+                                channel = norm_channel
+                            
+                            if self.gamma_std > 0:
+                                gamma = torch.exp(torch.randn(1) * self.gamma_std).item()
+                                gamma = max(0.5, min(2.0, gamma))  # Clamp gamma to reasonable range
+                                channel = channel.pow(gamma)
+                            
+                            img[c] = channel
+                    else:
+                        if torch.all(img == 0) or (img.max() - img.min()) < 1e-6:
+                            continue
+                            
+                        low_percentile, high_percentile = self.clip_percentiles
+                        min_val = torch.quantile(img, low_percentile / 100.0)
+                        max_val = torch.quantile(img, high_percentile / 100.0)
+                        
+                        if max_val <= min_val:
+                            max_val = min_val + 1e-6
+                        
+                        img = torch.clamp(img, min_val, max_val)
+                        
+                        if self.normalise:
+                            norm_img = (img - min_val) / (max_val - min_val)
+                            if torch.isnan(norm_img).any():
+                                print(f"WARNING: NaN values detected after normalization. Using min-max scaling instead.")
+                                if img.max() - img.min() > 0:
+                                    norm_img = (img - img.min()) / (img.max() - img.min())
+                                else:
+                                    norm_img = torch.zeros_like(img)
+                            img = norm_img
+                        
+                        if self.gamma_std > 0:
+                            gamma = torch.exp(torch.randn(1) * self.gamma_std).item()
+                            gamma = max(0.5, min(2.0, gamma))  # Clamp gamma to reasonable range
+                            img = img.pow(gamma)
+                    
+                    if torch.isnan(img).any() or torch.isinf(img).any():
+                        print(f"WARNING: NaN or Inf values detected after all processing. Resetting to zeros.")
+                        img = torch.zeros_like(img)
+                    
+                    d[key] = img
+                except Exception as e:
+                    print(f"ERROR in IntensityClipNormalizeD: {str(e)}")
+                    continue
+        
+        return d
+    
+
+
+from monai.transforms import MapTransform
+from typing import Sequence, Mapping, Hashable, Dict, Union
+import numpy as np
+import torch
+
+class ConvertLabelsD(MapTransform):
+    """
+    Replace integer labels of a segmentation **in-place**:
+
+        every voxel with value  generation_labels[i]
+        → becomes             output_labels[i]
+
+    Parameters
+    ----------
+    keys : str | Sequence[str]
+        Dict keys that should be remapped (usually just ["image"] or ["label"]).
+    generation_labels : Sequence[int]
+        Source label values (must be unique).
+    output_labels : Sequence[int]
+        Target label values (same length & order as generation_labels).
+    background_label : int
+        Fallback value for voxels whose label is *not* in generation_labels.
+    """
+    def __init__(
+        self,
+        keys: Union[str, Sequence[str]],
+        generation_labels: Sequence[int],
+        output_labels: Sequence[int],
+        background_label: int = 0,
+        allow_missing_keys: bool = False,
+    ):
+        super().__init__(keys, allow_missing_keys)
+
+        gen = np.asarray(generation_labels, dtype=np.int64)
+        out = np.asarray(output_labels,    dtype=np.int64)
+        if gen.shape != out.shape:
+            raise ValueError(
+                f"`generation_labels` and `output_labels` must have same length "
+                f"(got {gen.shape} vs {out.shape})."
+            )
+
+        self._lut_size = int(gen.max()) + 1
+        lut = np.full(self._lut_size, background_label, dtype=np.int64)
+        lut[gen] = out
+        self._lut = torch.from_numpy(lut)
+
+    def _convert(self, arr: Union[np.ndarray, torch.Tensor]) -> Union[np.ndarray, torch.Tensor]:
+        if isinstance(arr, np.ndarray):
+            if arr.max() >= self._lut_size:
+                raise ValueError("Label value out of LUT bounds – enlarge generation_labels.")
+            return self._lut.numpy()[arr]          # fancy-indexing on numpy array
+        elif isinstance(arr, torch.Tensor):
+            if arr.max() >= self._lut_size:
+                raise ValueError("Label value out of LUT bounds – enlarge generation_labels.")
+            lut_device = self._lut.to(arr.device)
+            return lut_device[arr.long()]
+        else:
+            raise TypeError("Unsupported array type, must be numpy.ndarray or torch.Tensor")
+
+    def __call__(self, data: Mapping[Hashable, torch.Tensor]) -> Dict[Hashable, torch.Tensor]:  # noqa: D401
+        d = dict(data)
+        for k in self.key_iterator(d):
+            d[k] = self._convert(d[k])
+        return d
+
+class SetBackgroundToZeroD(MapTransform):
+    """Set background pixels (label 0) to intensity 0 in the final image."""
+    
+    def __init__(self, 
+                 keys,
+                 seg_key: str = "class_map",
+                 background_label: int = 0,
+                 allow_missing_keys: bool = False):
+        super().__init__(keys, allow_missing_keys)
+        self.seg_key = seg_key
+        self.background_label = background_label
+    
+    def __call__(self, data):
+        d = dict(data)
+        
+        if self.seg_key not in d:
+            return d
+            
+        seg = d[self.seg_key]
+        
+        if isinstance(seg, torch.Tensor):
+            background_mask = (seg == self.background_label)
+        else:
+            background_mask = (seg == self.background_label)
+            background_mask = torch.from_numpy(background_mask).to(seg.device if hasattr(seg, 'device') else 'cpu')
+        
+        for key in self.key_iterator(d):
+            img = d[key]
+            
+            if isinstance(img, torch.Tensor):
+                d[key] = img * (~background_mask).float()
+            else:
+                img_tensor = torch.from_numpy(img)
+                masked = img_tensor * (~background_mask).float()
+                d[key] = masked.numpy()
+        
+        return d

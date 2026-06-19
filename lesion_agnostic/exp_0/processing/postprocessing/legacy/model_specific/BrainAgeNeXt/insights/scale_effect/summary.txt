@@ -1,0 +1,22 @@
+Total rows: 200
+Unique IXI subjects: 10
+Unique donor masks: 5
+Scales: [0.33, 0.66, 1.0, 1.33, 1.66]
+
+Effective voxel count summary:
+  min    = 320.8096
+  max    = 124448.2970
+  mean   = 29540.1161
+  median = 11100.0768
+
+Predicted brain age summary:
+  min    = 26.9486
+  max    = 66.2344
+  mean   = 42.3360
+  median = 40.8298
+
+Brain age difference summary:
+  min    = -4.7562
+  max    = 12.4293
+  mean   = 3.9595
+  median = 3.9826

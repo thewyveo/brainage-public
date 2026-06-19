@@ -1,0 +1,4 @@
+BraTS Subject ID,Patient's Age,Path,Predicted_Brain_Age,Brain_Age_Difference
+BraTS-GLI-00005-100,50.0,C:\Users\P102179\OneDrive - Amsterdam UMC\Bureaublad\repo\brainage\lesion_agnostic\exp_0\SFCN\data\preprocessed\synthstrip\BraTS\BraTS-GLI-00005-100-t1n_preprocessed.nii.gz,57.45312508777715,7.453125087777153
+BraTS-GLI-02093-103,34.0,C:\Users\P102179\OneDrive - Amsterdam UMC\Bureaublad\repo\brainage\lesion_agnostic\exp_0\SFCN\data\preprocessed\synthstrip\BraTS\BraTS-GLI-02093-103-t1n_preprocessed.nii.gz,51.94527951296914,17.945279512969137
+BraTS-GLI-02137-103,73.0,C:\Users\P102179\OneDrive - Amsterdam UMC\Bureaublad\repo\brainage\lesion_agnostic\exp_0\SFCN\data\preprocessed\synthstrip\BraTS\BraTS-GLI-02137-103-t1n_preprocessed.nii.gz,72.40154613464256,-0.5984538653574418

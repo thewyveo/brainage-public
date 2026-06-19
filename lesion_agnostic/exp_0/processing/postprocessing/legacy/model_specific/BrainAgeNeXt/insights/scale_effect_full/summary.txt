@@ -1,0 +1,37 @@
+Total rows: 3051
+Unique IXI subjects: 26
+Unique donor masks: 30
+
+Effective voxel count summary:
+  min    = 139.4844
+  max    = 145807.1562
+  mean   = 19070.1205
+  median = 10905.0000
+
+BAG summary:
+  min        = -11.2705
+  max        = 19.2150
+  mean       = 2.6600
+  median     = 2.7454
+  mean |BAG| = 4.0416
+  median|BAG|= 3.4967
+
+Correlations:
+  corr(effective_voxels, BAG)   = -0.016234
+  corr(effective_voxels, |BAG|) = 0.002431
+
+Within-subject/mask slope summary:
+  mean BAG slope per voxel    = -0.00000243
+  mean |BAG| slope per voxel  = 0.00000001
+  median BAG slope per voxel  = -0.00000420
+  median |BAG| slope per voxel= -0.00000204
+
+Voxel-bin summary:
+  mean_vox=466.15 | n=401 | mean_BAG=2.7896 | mean_|BAG|=4.1114 | mean_delta_|BAG|=-0.0131
+  mean_vox=1340.71 | n=375 | mean_BAG=2.6660 | mean_|BAG|=4.0100 | mean_delta_|BAG|=-0.0488
+  mean_vox=3550.38 | n=375 | mean_BAG=2.6801 | mean_|BAG|=4.0376 | mean_delta_|BAG|=-0.0631
+  mean_vox=8775.40 | n=375 | mean_BAG=2.7424 | mean_|BAG|=4.0525 | mean_delta_|BAG|=-0.0645
+  mean_vox=13709.76 | n=400 | mean_BAG=2.6332 | mean_|BAG|=4.0023 | mean_delta_|BAG|=-0.0299
+  mean_vox=25120.44 | n=375 | mean_BAG=2.6816 | mean_|BAG|=4.0484 | mean_delta_|BAG|=-0.0960
+  mean_vox=36732.53 | n=375 | mean_BAG=2.6305 | mean_|BAG|=3.9995 | mean_delta_|BAG|=-0.0807
+  mean_vox=64512.83 | n=375 | mean_BAG=2.4494 | mean_|BAG|=4.0689 | mean_delta_|BAG|=0.0307

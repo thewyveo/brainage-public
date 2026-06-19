@@ -1,0 +1,37 @@
+Number of cases: 1350
+
+tumor_voxels:
+  min    = 467
+  max    = 345565
+  mean   = 73355.62074074073
+  median = 60494.0
+  std    = 54847.343281882546
+
+tumor_volume_mm3:
+  min    = 467.0
+  max    = 345565.0
+  mean   = 73355.62074074073
+  median = 60494.0
+  std    = 54847.343281882546
+
+tumor_fraction:
+  min    = 6.467219643951169e-05
+  max    = 0.04785534809982839
+  mean   = 0.010158606240872598
+  median = 0.008377472915228737
+  std    = 0.007595499269617216
+
+bbox_volume_voxels:
+  min    = 1080
+  max    = 2008800
+  mean   = 434745.3874074074
+  median = 351297.0
+  std    = 337573.22552493174
+
+Biggest tumor case by voxel count:
+  case_id          = BraTS-GLI-02186-103
+  filename         = BraTS-GLI-02186-103-seg.nii.gz
+  tumor_voxels     = 345565
+  tumor_volume_mm3 = 345565.0
+  tumor_fraction   = 0.04785534809982839
+  bbox (x,y,z)     = (97, 137, 111)

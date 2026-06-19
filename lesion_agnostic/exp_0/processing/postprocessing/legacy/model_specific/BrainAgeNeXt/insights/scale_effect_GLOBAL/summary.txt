@@ -1,0 +1,40 @@
+Total scaled rows: 12204
+Unique subjects: 26
+Unique masks: 30
+
+Effective voxel count summary:
+  min    = 139.4844
+  max    = 145807.1562
+  mean   = 19070.1205
+  median = 10905.0000
+
+Scaled BAG summary:
+  mean BAG       = 2.6600
+  mean |BAG|     = 4.0416
+
+Healthy baseline BAG summary:
+  mean BAG       = 4.7288
+  mean |BAG|     = 9.0135
+
+Difference vs healthy baseline:
+  mean ΔBAG      = -2.0687
+  mean Δ|BAG|    = -4.9719
+  median Δ|BAG|  = -1.2279
+
+Correlations:
+  corr(voxels, ΔBAG)   = -0.005594
+  corr(voxels, Δ|BAG|) = 0.000777
+
+Within subject/mask slope summary:
+  mean slope ΔBAG/voxel      = -0.00000243
+  mean slope Δ|BAG|/voxel    = 0.00000001
+
+Voxel-bin summary:
+  mean_vox=466.15 | n=1604 | mean_ΔBAG=-1.9515 | mean_Δ|BAG|=-4.9051
+  mean_vox=1340.71 | n=1500 | mean_ΔBAG=-2.0609 | mean_Δ|BAG|=-5.0030
+  mean_vox=3550.38 | n=1500 | mean_ΔBAG=-2.0468 | mean_Δ|BAG|=-4.9754
+  mean_vox=8775.40 | n=1500 | mean_ΔBAG=-1.9845 | mean_Δ|BAG|=-4.9605
+  mean_vox=13709.76 | n=1600 | mean_ΔBAG=-2.0937 | mean_Δ|BAG|=-5.0107
+  mean_vox=25120.44 | n=1500 | mean_ΔBAG=-2.0453 | mean_Δ|BAG|=-4.9646
+  mean_vox=36732.53 | n=1500 | mean_ΔBAG=-2.0964 | mean_Δ|BAG|=-5.0135
+  mean_vox=64512.83 | n=1500 | mean_ΔBAG=-2.2775 | mean_Δ|BAG|=-4.9441
