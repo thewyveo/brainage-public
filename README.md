@@ -1,4 +1,4 @@
-# brainage (public LESION AGNOSTICISM sub-repo)
+# brainage (public sub-repository for lesion-agnosticism)
 
 <p align="center">
   <img src="./pipeline.png" alt="drawing", height="600", width="550"/>
@@ -342,5 +342,5 @@ brainage/
 
 ---
 
-Some files/scripts/configs may not be ran on a CPU and may require GPU setup.
-This is unfortunately unavoidable as the published repository contains files that were extracted from the used HPC cluster, Snellius; which operates with NVIDIA H100 and A100 GPUs.
+Some scripts and configurations cannot be run on CPUs and may require GPU acceleration.
+This is unfortunately unavoidable as the published repository contains files that were extracted from the used HPC cluster, Snellius, which operates with NVIDIA H100 and A100 GPUs.
