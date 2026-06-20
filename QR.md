@@ -19,6 +19,7 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 🖼️ **Scientific Poster**
 
 [View Poster](./poster.pdf)
+
 [View Poster (Night Mode)](./poster-night.pdf)
 
 💻 **Repository**
