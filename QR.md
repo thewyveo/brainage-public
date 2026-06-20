@@ -1,15 +1,11 @@
-# Tumors Systematically Bias Brain Age Prediction: Towards Lesion-Agnostic Estimation via Inference-Time Inpainting
+# Towards Lesion-Agnostic Estimation via Inference-Time Inpainting
 
 **Kayra Özdemir**
 BSc. Artificial Intelligence, Vrije Universiteit Amsterdam
 Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
----
-
-## Featured Figure
-
 <p align="center">
-  <img src="PLACEHOLDER.gif" width="750">
+  <img src="demonstration.gif" width="750">
 </p>
 
 ---
@@ -23,6 +19,7 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 🖼️ **Scientific Poster**
 
 [View Poster](./poster.pdf)
+[View Poster (Night Mode)](./poster-night.pdf)
 
 💻 **Repository**
 
