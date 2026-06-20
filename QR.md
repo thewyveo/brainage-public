@@ -1,7 +1,7 @@
 # Towards Lesion-Agnostic Estimation via Inference-Time Inpainting
 
 **Kayra Özdemir**
-
+[🔗](https://www.linkedin.com/in/kayraozdemir/)
 BSc. Artificial Intelligence, Vrije Universiteit Amsterdam;
 Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
@@ -46,6 +46,7 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 | Experiments           | 20       |
 
 > **Finding 1:** Tumors systematically bias brain age predictions
+
 > **Finding 2:** Current inpainting approaches do not reliably restore healthy anatomy.
 
 ---
@@ -70,11 +71,9 @@ Brain age prediction models are increasingly used as biomarkers of brain health.
 
 **Supervisors**
 
-* dr. Szabolcs Dávid
-* dr. Aneta Lisowska
+* dr. Szabolcs Dávid, Division Imaging & Oncology; Radiotherapy (research)
+* dr. Aneta Lisowska, Assistant Professor, Faculty of Science, Computer Science; Network Institute
 
 ---
-
-[LinkedIn 🔗](https://www.linkedin.com/in/kayraozdemir/)
 
 Thank you for taking the time to view my work.
