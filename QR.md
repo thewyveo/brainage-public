@@ -1,7 +1,8 @@
 # Towards Lesion-Agnostic Estimation via Inference-Time Inpainting
 
 **Kayra Özdemir**
-BSc. Artificial Intelligence, Vrije Universiteit Amsterdam
+
+BSc. Artificial Intelligence, Vrije Universiteit Amsterdam;
 Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
 <p align="center">
