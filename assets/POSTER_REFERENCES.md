@@ -30,6 +30,6 @@ This page contains the complete reference list corresponding to the references c
 
 ---
 
-[← Back to QR Landing Page](./QR.md)
+[← Back to QR Landing Page](../QR.md)
 
-[← Repository Home](./README.md)
+[← Repository Home](../README.md)
