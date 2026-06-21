@@ -6,7 +6,7 @@ BSc. Artificial Intelligence, Vrije Universiteit Amsterdam;
 Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
 <p align="center">
-  <img src="demonstration.gif" width="750">
+  <img src="./assets/demonstration.gif" width="750">
 </p>
 
 ---
@@ -29,7 +29,13 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
 📚 **Full Poster References**
 
-[Poster References](./POSTER_REFERENCES.md)
+[Poster References](./assets/POSTER_REFERENCES.md)
+
+🪧 **Presentations**
+
+[Initial Presentation](./assets/initial-presentation.pptx)
+
+[Midway Presentation](./assets/midway-presentation.pptx)
 
 ---
 
@@ -38,12 +44,17 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 | Item                  | Value    |
 | --------------------- | -------- |
 | Duration              | 6 months |
+| Presentations         | 3        |
 | Healthy Subjects      | 547      |
 | Tumor Subjects        | 1,790    |
 | Brain Age Models      | 2        |
 | Tumor Generators      | 3        |
 | Inpainting Frameworks | 3        |
 | Experiments           | 20       |
+| Computer Environments | 3        |
+| DLinRT Symposiums     | 1        |
+| PhD Defenses Attended | 1        |
+| Total Meetings        | ~100     |
 
 > **Finding 1:** Tumors systematically bias brain age predictions
 

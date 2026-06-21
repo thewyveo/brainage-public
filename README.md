@@ -1,7 +1,7 @@
 # brainage (public sub-repository for lesion-agnosticism)
 
 <p align="center">
-  <img src="./pipeline.png" alt="drawing", height="600", width="550"/>
+  <img src="./assets/pipeline.png" alt="drawing", height="600", width="550"/>
 </p>
 
 Research codebase for **brain age prediction under synthetic and real lesions**, comparing lesion-agnostic modelling strategies. The main brainage repository is split into two main tracks:
