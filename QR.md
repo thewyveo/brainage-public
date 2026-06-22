@@ -41,20 +41,22 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 
 ## Project Summary
 
-| Item                  | Value    |
-| --------------------- | -------- |
-| Duration              | 6 months |
-| Presentations         | 3        |
-| Healthy Subjects      | 547      |
-| Tumor Subjects        | 1,790    |
-| Brain Age Models      | 2        |
-| Tumor Generators      | 3        |
-| Inpainting Frameworks | 3        |
-| Experiments           | 20       |
-| Computer Environments | 3        |
-| DLinRT Symposiums     | 1        |
-| PhD Defenses Attended | 1        |
-| Total Meetings        | ~100     |
+| Item                                   | Value    |
+| -------------------------------------- | -------- |
+| Duration                               | 6 months |
+| Presentations                          | 3        |
+| Datasets                               | 2        |
+| Brain Age Models Experimented with     | 4        |
+| Tumor Generators Experimented with     | 3        |
+| Inpainters Experimented with           | 9        |
+| Experiments                            | 32       |
+| Compute Env.s (macOS, Win, Unix)       | 3        |
+| # of MRIs Manually Checked for Quality | ~6970    |
+| DLinRT Symposiums                      | 1        |
+| PhD Defenses Attended                  | 1        |
+| MSc.-level Meetings Attended           | ~15      |
+| Total Meetings                         | ~100     |
+| Total Papers Read                      | >150     |
 
 > **Finding 1:** Tumors systematically bias brain age predictions
 
