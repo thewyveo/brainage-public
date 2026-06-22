@@ -52,7 +52,7 @@ Dept. of Radiotherapy, Amsterdam UMC (VUmc)
 | Experiments                            | 32       |
 | Compute Env.s (macOS, Win, Unix)       | 3        |
 | # of MRIs Manually Checked for Quality | ~6970    |
-| DLinRT Symposiums                      | 1        |
+| DLinRT Symposiums Attended             | 1        |
 | PhD Defenses Attended                  | 1        |
 | MSc.-level Meetings Attended           | ~15      |
 | Total Meetings                         | ~100     |
