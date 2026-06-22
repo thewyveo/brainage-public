@@ -48,12 +48,13 @@ exp1/      BNX_CM_LIT.csv, JOOS_GLI_BID.csv, …
 
 ```
 brainage/
-├── lesion_agnostic/          # Main lesion-agnostic experiment pipeline
-│   ├── configs/              # SLURM launcher configs
-│   ├── data/                 # Labels, predictions, results, MNI152 template
-│   ├── exp_0/                # Synthetic lesion generators + brain-age inference + processing
-│   └── exp_1/                # Inpainting methods
-└── modality_agnostic/        # JOOS' training folder
+├── lesion_agnostic/               # Main lesion-agnostic experiment pipeline
+│   ├── configs/                   # SLURM launcher configs
+│   ├── data/                      # Labels, predictions, results, MNI152 template
+│   ├── exp_0/                     # Synthetic lesion generators + brain-age inference + processing
+│   └── exp_1/                     # Inpainting methods
+├── assets/                        # Additional material (presentations, pipeline, framework gif...)
+└── (PRIVATED) modality_agnostic/  # JOOS' training folder
 ```
 
 ### `lesion_agnostic/configs/`
